@@ -14,7 +14,7 @@ r_start = (0, 3)
 artists = []
 red_x = [r_start[0]]
 red_y = [r_start[1]]
-# ln, = plt.plot(x, y, 'r', animated=True)
+
 annotation = AnnotationBbox(im, (red_x[0], red_y[0]), xycoords='data', frameon=False)
 artists.append(ax.add_artist(annotation))
 
@@ -36,7 +36,7 @@ def update(i):
 
     artists.append(ax.add_artist(annotation))
     annotation.xybox = (xi, yi)
-    ax.set_title(f'T={ti:5} [sec] XY=({xi:6},{yi:6}) [m]  ')
+    ax.set_title(f'T={ti:5} [sec] XY=({xi:6},{yi:6}) [m]')
 
 
 ani = FuncAnimation(fig, update, frames=flames+1,

@@ -6,7 +6,7 @@ from matplotlib.animation import FuncAnimation
 v = 10  # [m/s]
 
 goal = 50  # [m]
-flames = int(50 / v * 100)
+frames = int(round(50 / v * 100, 1)) + 1
 
 fig, ax = plt.subplots(figsize=(16, 9))
 
@@ -40,18 +40,17 @@ def update(i):
 
     if xi * 100 < 21:
         annotation = AnnotationBbox(im[c], (xi, yi), xycoords='data', frameon=False)
-    elif i == flames:
+    elif i == frames - 1:
         annotation = AnnotationBbox(im[0], (xi, yi), xycoords='data', frameon=False)
     else:
         annotation = AnnotationBbox(im[c % 21], (xi, yi), xycoords='data', frameon=False)
 
     artists.append(ax.add_artist(annotation))
 
-    ax.set_title(f'T={ti:5} [sec] XY=({xi:6},{yi:6}) [m]  ')
+    ax.set_title(f'T={ti:5} [sec] XY=({xi:6},{yi:6}) [m]')
 
 
-ani = FuncAnimation(fig, update, frames=flames + 1,
-                    interval=10, blit=False)
+ani = FuncAnimation(fig, update, frames=frames, interval=10, blit=False)
 
 HTML(ani.to_html5_video())
 
