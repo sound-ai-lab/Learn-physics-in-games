@@ -33,8 +33,8 @@ def update_func(i):
     ax.plot(x1[i], y1[i], color='red', marker='o', markersize=10)
     ax.plot(x2[i], y2[i], color='black', marker='o', markersize=10)
     # 軸ラベルの設定
-    ax.set_xlabel('x', fontsize=12)
-    ax.set_ylabel('y', fontsize=12)
+    ax.set_xlabel('x[m]', fontsize=12)
+    ax.set_ylabel('y[m]', fontsize=12)
     ax.set_xlim(-10, flames / steps)
     ax.set_ylim(-1, 4)
     # サブプロットタイトルの設定
