@@ -27,14 +27,16 @@ def update(i):
     ax.set_ylabel('y', fontsize=16)
     ax.set_aspect('equal')
 
+    ti = round(i / 10, 1)
     xi = 0
     yi = r_start[1]
 
     red_x.append(xi)
     red_y.append(yi)
+
     artists.append(ax.add_artist(annotation))
     annotation.xybox = (xi, yi)
-    ax.set_title(f'T={i:3} [msec] XY=({xi:5},{yi:5}) [sec]  ')
+    ax.set_title(f'T={ti:5} [sec] XY=({xi:6},{yi:6}) [m]  ')
 
 
 ani = FuncAnimation(fig, update, frames=flames+1,
